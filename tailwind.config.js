@@ -21,7 +21,7 @@ export default {
             },
         },
         colors: {
-            'curr': '#CE9931',
+            'curr': '#788d9b',
         },
     },
 

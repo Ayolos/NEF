@@ -1,6 +1,25 @@
+<template>
+    <div class="relative flex items-center bg-gray-900 justify-center w-screen h-screen overflow-hidden rounded-b-xl bg-gray-200">
+        <!-- Tache lumineuse -->
+        <div class="absolute h-48 w-48 top-28 bg-curr blur-3xl z-40 rounded-full"></div>
+        <div class="absolute h-48 w-48 bottom-48 left-48 bg-curr blur-3xl z-40 rounded-full"></div>
+        <div class="absolute h-48 w-48 bottom-0 right-0 bg-curr blur-3xl z-40 rounded-full"></div>
+
+        <!-- Contenu texte -->
+        <div class="md:w-1/2 md:px-0 px-16 flex flex-col justify-center z-40">
+            <div>
+                <h1 class="text-curr font-bold sm:text-4xl text-2xl pb-6 rounded-md">
+                    <slot name="title"></slot>
+                </h1>
+                <p class="sm:text-xl text-md text-gray-500">
+                    <slot name="subtitle"></slot>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
 <script setup>
-import Banner from '/public/Banner.jpeg'
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const props = defineProps({
     url: String
@@ -8,22 +27,18 @@ const props = defineProps({
 
 </script>
 
-<template>
-    <div class="relative w-screen overflow-hidden shadow-2xl rounded-b-xl">
-        <img :src="url" class="blur-sm object-cover w-full h-screen" alt="image de bannière">
-        <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
-        <div class="absolute inset-0 flex flex-col justify-center gap-5 px-5 sm:px-[20%]">
-            <h1 class="text-[#CE9931] font-bold sm:text-4xl text-2xl backdrop-sepia p-2 rounded-md">
-                <slot name="title"></slot>
-            </h1>
-            <p class="sm:text-xl text-md text-gray-300 shadow-xl">
-                <slot name="subtitle"></slot>
-            </p>
-        </div>
-        <font-awesome-icon icon="fa-arrow-down" class="absolute inset-x-1/2 bottom-0 pb-20 text-2xl text-white"></font-awesome-icon>
-    </div>
-</template>
-
 <style scoped>
+.absolute {
+    animation: scatter 3s ease-in-out infinite alternate;
+}
 
+@keyframes scatter {
+    0% {
+        box-shadow: 0 0 60px 5px rgba(255, 255, 255, 0.8);
+    }
+}
+
+@function random($min, $max) {
+    @return random($min) * ($max - $min) + $min;
+}
 </style>
