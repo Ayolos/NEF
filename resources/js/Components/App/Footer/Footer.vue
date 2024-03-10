@@ -7,7 +7,7 @@ import Logo2 from '/public/Logo2.png'
 </script>
 
 <template>
-    <footer class="bg-gray-200">
+    <div class="bg-gray-200">
         <div class="w-full">
             <div class="flex sm:items-center items-start justify-between px-8">
                 <img :src="Logo2" class="sm:h-12 h-8" alt="Logo" />
@@ -20,9 +20,9 @@ import Logo2 from '/public/Logo2.png'
                 <img :src="Logo" class="sm:h-12 h-8" alt="Logo" />
             </div>
             <hr class="my-6 border-gray-500 sm:mx-auto lg:my-8" />
-            <span class="block text-sm text-center pb-5 text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" class="hover:underline">Nord France Fermetures™</a>. Tout les droit sont réservé.</span>
+            <span class="block text-sm text-center pb-5 text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="" class="hover:underline">Nord France Fermetures™</a>. Tout les droits sont réservé.</span>
         </div>
-    </footer>
+    </div>
 </template>
 
 <style scoped>

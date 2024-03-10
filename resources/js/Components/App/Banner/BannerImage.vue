@@ -11,7 +11,7 @@
                 <h1 class="text-curr font-bold sm:text-4xl text-2xl pb-6 rounded-md">
                     <slot name="title"></slot>
                 </h1>
-                <p class="sm:text-xl text-md text-gray-500">
+                <p class="sm:text-xl text-md text-gray-400 text-justify">
                     <slot name="subtitle"></slot>
                 </p>
             </div>

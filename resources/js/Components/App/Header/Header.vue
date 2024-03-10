@@ -11,7 +11,7 @@ onMounted(() => {
 
 <template>
     <nav class="z-50 bg-gray-100 w-full top-0 left-0 sticky">
-        <div class="max-w-screen-xl flex flex-wrap items-center md:justify-around justify-between gap-8 mx-auto p-5">
+        <div class="max-w-screen-xl flex flex-wrap items-center md:justify-around justify-between gap-8 mx-auto p-3">
             <a :href="route('home')" class="flex items-center w-max gap-6">
                 <img :src="logo2" alt="Image" class="w-28"/>
             </a>

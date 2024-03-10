@@ -2,6 +2,7 @@
 
 import AppLayout from "@/Layouts/AppLayout.vue";
 import {useContentfulFetch} from "@/Composable/fetchContentfullApi.js";
+import { Head } from '@inertiajs/vue3'
 
 const query = `{
      aboutPageCollection{
@@ -18,32 +19,38 @@ const {data, isLoading} = useContentfulFetch(query)
 
 <template>
 <AppLayout v-if="data">
-    <section class="h-full flex md:flex-row flex-col gap-14 justify-center pb-20 md:pt-20 items-center px-10 sm:px-20">
-        <div class="flex flex-col gap-5 w-full pt-9">
+    <Head>
+        <title>A propos de nous</title>
+        <meta name="description" content="Découvrer plus sur NORD EQUIPEMENT FERMETURES">
+    </Head>
+    <section class="h-full flex md:flex-row flex-col gap-14 justify-center items-center py-20 px-10 sm:px-20">
+        <div class="flex flex-col gap-5 pt-9 text-justify">
             <h1 class="font-bold text-3xl md:text-5xl pb-8">A propos de nous</h1>
             <h1 class="font-bold text-xl ">NORD EQUIPEMENT FERMETURES</h1>
-            <p class="text-gray-500 sm:text-lg text-sm">
-                Nord Equipement Fermetures est bien plus qu'une entreprise de fermetures. Nous sommes votre partenaire de confiance pour tous vos besoins en matière de sécurité et de fonctionnalité des accès, que ce soit pour votre domicile, votre entreprise ou vos installations industrielles. Notre engagement envers l'excellence et l'innovation se reflète dans chaque produit que nous fabriquons et dans chaque service que nous fournissons.
+            <p class="text-gray-500 sm:text-lg text-sm text-justify">
+                <span class="text-curr-black font-bold">Expert de la fermeture</span>, nous vous accompagnons dans toutes les étapes de votre projet, de la conception à la pose de vos menuiseries. <span class="text-curr-black font-bold">Alliant qualité, fiabilité et esthétisme</span>, les produits que nous proposons sont performants et répondent au mieux à vos besoins au quotidien. Grâce aux diverses compétences qu’elle rassemble, l’entreprise est ainsi capable gérer l’ensemble de vos besoins dans le domaine de la fermeture.
             </p>
         </div>
-        <img class="rounded md:w-1/2 h-full shadow-2xl" :src="data?.aboutPageCollection?.items[0]?.mainImage?.url" alt="Extra large avatar">
+        <img class="rounded md:w-1/2 md:h-full h-[30vh] object-cover shadow-2xl" :src="data?.aboutPageCollection?.items[0]?.mainImage?.url" alt="Extra large avatar">
     </section>
     <hr class="border-1 border-gray-300">
     <section class="h-full flex flex-col gap-14 items-start p-5 lg:p-20 mb-20">
         <h1 class="font-bold text-3xl md:text-4xl pt-10">Notre Engagement</h1>
         <div class="w-full h-full md:flex-row flex-col flex gap-16 justify-center items-center">
             <img :src="data?.aboutPageCollection?.items[0]?.sectionImage?.url" class="w-1/2 overflow-clip rounded-xl" alt="image principal" />
-            <div class="basis-1/2 gap-4 flex flex-col">
-                <p class="">
-                    Chez Nord Equipement Fermetures, nous sommes fiers de notre engagement envers nos clients, nos produits et nos valeurs. Nous nous engageons à être votre partenaire de confiance pour tous vos besoins en matière de fermeture.                </p>
+            <div class="basis-1/2 gap-4 flex flex-col text-justify">
+                <p class="text-gray-500">
+                    Tous nos produits sont <span class="text-curr-black font-bold">faits sur mesure</span>. Nous prenons le temps d’analyser chaque commande afin de répondre aux attentes de nos clients du mieux que nous le pouvons.
+                </p>
                 <h1 class="font-bold text-xl">Engagement envers la Qualité</h1>
-                <p class="">
-                    Nous sommes fiers de la qualité de nos produits et services. Chaque produit que nous fabriquons et installons est soumis à des normes rigoureuses de contrôle qualité pour garantir sa durabilité et sa fiabilité.
+                <p class="text-gray-500">
+                    Nos produits sont produits à l’aide de matériaux de très bonne qualité et passent un <span class="text-curr-black font-bold">test de qualité complet</span> avant de sortir de l’usine. Nos produits répondent aux normes de qualité les plus élevées.
+                    Nos clients peuvent identifier la couleur de leur choix figurant dans <span class="text-curr-black font-bold">la palette RAL</span>.
                 </p>
                 <h1 class="font-bold text-xl">Engagement envers la Satisfaction du Client</h1>
-                <p class="">
-                    La satisfaction de nos clients est notre priorité absolue. Nous nous efforçons de comprendre leurs besoins uniques et de leur fournir des solutions sur mesure qui dépassent leurs attentes.                </p>
-
+                <p class="text-gray-500">
+                    Si chacun de nos projets est unique, notre manière de construire nos opérations reste fidèle à nos valeurs : <span class="text-curr-black font-bold">Responsable et Engagé</span>.
+                </p>
             </div>
         </div>
     </section>

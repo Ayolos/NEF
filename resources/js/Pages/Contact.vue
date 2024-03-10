@@ -2,23 +2,58 @@
 
 import AppLayout from "@/Layouts/AppLayout.vue";
 import {reactive} from "vue";
-import {router} from "@inertiajs/vue3";
+import {router, useForm} from "@inertiajs/vue3";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import { Head } from '@inertiajs/vue3';
 
-const form = reactive({
+const form = useForm({
     email: '',
     subject: '',
     message: ''
 })
 
-const submit = () => {
-    router.post(route('contact.send'), form)
-}
+const clearForm = () => {
+    form.email = '';
+    form.subject = '';
+    form.message = '';
+};
+
+const notification = reactive({
+    message: '',
+    type: '' // success, error, info, etc.
+});
+
+// Function to clear the notification
+const clearNotification = () => {
+    notification.message = '';
+    notification.type = '';
+};
+
+const submit = async () => {
+    form.post(route('contact.send'), {
+        preserveScroll: true,
+        onSuccess: () => {
+            clearForm();
+            notification.message = 'Message envoyé!';
+            notification.type = 'success';
+            setTimeout(clearNotification, 2000); // Auto-dismiss after 2 seconds
+        },
+        onError: () => {
+            notification.message = 'Erreur lors de l\'envoi du message! Veuillez réessayer.';
+            notification.type = 'error';
+        }
+    });
+};
+
 
 </script>
 
 <template>
     <AppLayout>
+        <Head>
+            <title>Contactez nous</title>
+            <meta name="description" content="Contactez nous dès aujourd'hui">
+        </Head>
         <div class="pb-20 pt-20">
             <section class="flex justify-center items-center">
                 <div class="py-8 lg:py-16 px-4 h-max">
@@ -28,6 +63,14 @@ const submit = () => {
                         <div class="flex items-center justify-start gap-4 text-md text-gray-100 pt-6 hover:text-gray-900">
                             <font-awesome-icon :icon="['fa', 'envelope']" class="px-1 text-2xl" />
                             <a href="mailto:sassamanry@gmail.com" class="">sassamanry@gmail.com</a>
+                        </div>
+                        <div class="flex items-center justify-start gap-4 text-md text-gray-100 pt-6 hover:text-gray-900">
+                            <font-awesome-icon :icon="['fa', 'envelope']" class="px-1 text-2xl" />
+                            <a href="mailto:nef2@wanadoo.fr" class="">nef2@wanadoo.fr</a>
+                        </div>
+                        <div class="flex items-center justify-start gap-4 text-md text-gray-100 pt-6 hover:text-gray-900">
+                            <font-awesome-icon :icon="['fa', 'envelope']" class="px-1 text-2xl" />
+                            <a href="mailto:pmdustfly@orange.fr" class="">pmdustfly@orange.fr</a>
                         </div>
                         <div class="flex items-center justify-start gap-4 text-md text-gray-100 pt-6">
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
@@ -55,10 +98,37 @@ const submit = () => {
                     </div>
                 </div>
             </section>
+            <transition name="fade" v-if="notification.type === 'success'">
+                <div dir="rtl" class="fixed top-20 flex flex-row gap-2 start-0 mr-2 items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">Message de contact envoyé</span>
+                    </div>
+                </div>
+            </transition>
+            <transition name="fade" v-if="notification.type === 'error'">
+                <div dir="rtl" class="fixed top-20 inline-flex start-0 mr-2 items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium"></span> Erreur lors de l'envoi du message! Veuillez réessayer.
+                    </div>
+                </div>
+            </transition>
         </div>
     </AppLayout>
 </template>
 
 <style scoped>
-
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
 </style>
