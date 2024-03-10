@@ -20,7 +20,7 @@ class   ContactFormMail extends Mailable
 
     public function build()
     {
-        return $this->from('pierre@renovetvous.eu')
+        return $this->from('pierre@nordequipementfermetures.fr')
             ->subject('[Assistance NEF] Message de contact: ' . $this->formData['subject'])
             ->view('emails.contact', ['data' => $this->formData]);
     }
