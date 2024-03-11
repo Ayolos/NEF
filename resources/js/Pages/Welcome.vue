@@ -18,22 +18,22 @@
                 <h1 class="text-4xl text-center font-bold pb-16">Nos différentes prestations</h1>
                 <BigCard>
                     <template #section1>
-                        <img v-if="data?.homePageCollection?.items[0]?.porteSectionelle?.url" :src="data?.homePageCollection?.items[0]?.porteSectionelle?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.porteSectionelle?.url" :src="data?.homePageCollection?.items[0]?.porteSectionelle?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                     <template #section2>
-                        <img v-if="data?.homePageCollection?.items[0]?.rideauMetallique?.url" :src="data?.homePageCollection?.items[0]?.rideauMetallique?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.rideauMetallique?.url" :src="data?.homePageCollection?.items[0]?.rideauMetallique?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                     <template #section3>
-                        <img v-if="data?.homePageCollection?.items[0]?.grilleEnroulement?.url" :src="data?.homePageCollection?.items[0]?.grilleEnroulement?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.grilleEnroulement?.url" :src="data?.homePageCollection?.items[0]?.grilleEnroulement?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                     <template #section4>
-                        <img v-if="data?.homePageCollection?.items[0]?.porteRapide?.url" :src="data?.homePageCollection?.items[0]?.porteRapide?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.porteRapide?.url" :src="data?.homePageCollection?.items[0]?.porteRapide?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                     <template #section5>
-                        <img v-if="data?.homePageCollection?.items[0]?.niveleurQuai?.url" :src="data?.homePageCollection?.items[0]?.niveleurQuai?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.niveleurQuai?.url" :src="data?.homePageCollection?.items[0]?.niveleurQuai?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                     <template #section6>
-                        <img v-if="data?.homePageCollection?.items[0]?.sas?.url" :src="data?.homePageCollection?.items[0]?.sas?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg">
+                        <img v-if="data?.homePageCollection?.items[0]?.sas?.url" :src="data?.homePageCollection?.items[0]?.sas?.url" alt="" class="w-1/2 mx-auto mt-4 rounded-lg aspect-square object-cover">
                     </template>
                 </BigCard>
             </div>

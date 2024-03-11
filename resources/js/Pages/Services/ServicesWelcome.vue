@@ -51,9 +51,9 @@ onUnmounted(() => {
             <h1 class="text-3xl font-bold pb-16">Découvrer nos différents services</h1>
 
             <div class="grid sm:grid-cols-2 gap-8">
-                <div class="bg-gray-200 shadow-xl rounded-xl text-curr">
-                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[0]?.url" class="w-full h-48 object-cover rounded-t-xl" alt="image" />
-                    <div class="p-8 text-justify">
+                <div class="bg-gray-200 shadow-xl rounded-xl text-curr h-max min-h-full">
+                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[0]?.url" class="w-full h-1/2 object-cover rounded-t-xl" alt="image" />
+                    <div class="p-8 text-justify h-full">
                         <h1 class="font-bold text-xl pb-2 text-gray-900 text-center">Portes Sectionnelle</h1>
                         <div class="flex flex-col gap-3">
                             <p>
@@ -70,8 +70,8 @@ onUnmounted(() => {
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-200 shadow-xl rounded-xl text-curr">
-                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[1]?.url" class="w-full h-48 object-cover rounded-t-xl" alt="image" />
+                <div class="bg-gray-200 shadow-xl rounded-xl text-curr h-max min-h-full">
+                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[1]?.url" class="w-full h-1/2 object-cover rounded-t-xl" alt="image" />
                     <div class="p-8 text-justify">
                         <h1 class="font-bold text-xl pb-2 text-gray-900 text-center">Portails et Extérieurs</h1>
                         <div class="flex flex-col gap-3">
@@ -92,8 +92,8 @@ onUnmounted(() => {
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-200 shadow-xl rounded-xl text-curr">
-                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[2]?.url" class="w-full h-48 object-cover rounded-t-xl" alt="image" />
+                <div class="bg-gray-200 shadow-xl rounded-xl text-curr h-max min-h-full">
+                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[2]?.url" class="w-full h-1/2 object-cover rounded-t-xl" alt="image" />
                     <div class="p-8 text-justify">
                         <h1 class="font-bold text-xl pb-2 text-gray-900 text-center">Et pour les Industriels</h1>
                         <div class="flex flex-col gap-3">
@@ -117,8 +117,8 @@ onUnmounted(() => {
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-200 shadow-xl text-center rounded-xl text-curr">
-                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[3]?.url" class="w-full h-48 object-cover rounded-t-xl" alt="image" />
+                <div class="bg-gray-200 shadow-xl text-center rounded-xl text-curr h-max min-h-full">
+                    <img :src="data?.servicePageCollection?.items[0]?.cardImgCollection?.items[3]?.url" class="w-full h-1/2 object-cover rounded-t-xl" alt="image" />
                     <div class="p-8 text-justify">
                         <h1 class="font-bold text-xl pb-2 text-gray-900">Options Diverses</h1>
                         <p>
