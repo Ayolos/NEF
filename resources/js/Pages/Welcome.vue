@@ -3,6 +3,7 @@
         <Head>
             <title>Nord Equipement Fermetures</title>
             <meta name="description" content="Nord Equipement Fermetures est une entreprise spécialisée dans la fabrication et l’installation de divers équipements de fermetures pour les professionnels comme pour les particuliers. La société a été fondée en 1998 sur un principe ; avoir des produits qui allient Qualité, Fiabilité et Esthétisme.">
+            <meta name="keywords" content="Nord Equipement Fermetures, NEF, équipements de fermetures, professionnels, particuliers, fabrication, installation, qualité, fiabilité, esthétisme, portes, fenêtres, volets, portails, serrures, sécurité, Lille, Nord, France">
         </Head>
         <BannerImage :url="data?.imageCollection?.items[0]?.imageAccueil?.url">
             <template #title>
